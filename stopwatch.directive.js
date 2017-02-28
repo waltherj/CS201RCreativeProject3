@@ -39,13 +39,13 @@ function stopwatchDirective ($interval) {
 
                 var newMillis = scope.millis + (delta * 1); // increase this 1 for debugging
 
-
                 hundredths = Math.floor(scope.millis / 10 % 100);
                 seconds = Math.floor(scope.millis / 1000 % 60);
                 minutes = Math.floor(scope.millis / 1000 / 60 % 60);
                 hours = Math.floor(scope.millis / 1000 / 60 / 60 % 24);
 
                 scope.millis = newMillis;
+                // ouput all new times to view, and format them with a leading 0 if needed
                 scope.output = {
                     hundredths: hundredths < 10 ? '0' + hundredths : hundredths,
                     seconds: seconds < 10 ? '0' + seconds : seconds,
