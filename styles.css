@@ -1,0 +1,15 @@
+.stopwatch-card {
+    text-align: center;
+    width: 100%;
+}
+
+.time {
+    text-align: center;
+    font-size: 36px;
+    font-family: monospace
+}
+
+.time-section {
+    display: inline-block;
+    width: 44px;
+}
