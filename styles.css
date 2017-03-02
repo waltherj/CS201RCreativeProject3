@@ -11,5 +11,20 @@
 
 .time-section {
     display: inline-block;
-    width: 44px;
+}
+
+.lap .time {
+    font-size: 14px;
+}
+
+.lap {
+    display: inline-block;
+    padding: 16px;
+    margin: 16px;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+.time-section.muted {
+    color: #aaaaaa;
 }
