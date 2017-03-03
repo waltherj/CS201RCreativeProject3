@@ -1,9 +1,12 @@
 angular.module('app', [])
     .controller('mainCtrl', mainCtrl)
     .directive('stopwatch', stopwatchDirective)
-    .directive('time', timeDirective)
+    .directive('timer', timerDirective);
+
 
 function mainCtrl ($scope) {
-    $scope.time = 0;
+    $scope.stopwatchTime = 0;
+    $scope.timerTime = 0;
+
 }
 

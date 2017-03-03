@@ -1,7 +1,12 @@
-var template = `
+var stopwatchTemplate = `
     <div class="card stopwatch-card">
         <div class="card-block">
-            <time output="output"></time><br/>
+                        <div class="time">
+                <div class='time-section'>{{output.hours}}</div>
+                : <div class='time-section'>{{output.minutes}}</div>
+                : <div class='time-section'>{{output.seconds}}</div>
+                : <div class="time-section">{{output.hundredths}}</div>
+            </div>
             <button ng-hide='running' ng-click="startTime()" class="btn btn-success">Start</button>
             <button ng-show='running' ng-click="stopTime()" class="btn btn-warning">Stop</button>
             <button ng-click="clearTime()" class="btn btn-danger">Clear</button>
@@ -11,10 +16,20 @@ var template = `
                 <table>
                     <tr>
                         <td>Current : </td>
-                        <td><time output="lapTime"></time></td>
+                        <td><time output="lapTime">
+                <div class='time-section'>{{lapTime.hours}}</div>
+                : <div class='time-section'>{{lapTime.minutes}}</div>
+                : <div class='time-section'>{{lapTime.seconds}}</div>
+                : <div class="time-section">{{lapTime.hundredths}}</div>
+           </time></td>
                     </tr>
                     <tr ng-repeat="(i, lap) in laps">
-                        <td>Lap {{i}} : </td> <td><time output="lap.output"></time></td>
+                        <td>Lap {{i}} : </td> <td><time output="lap.output">
+                <div class='time-section'>{{lap.output.hours}}</div>
+                : <div class='time-section'>{{lap.output.minutes}}</div>
+                : <div class='time-section'>{{lap.output.seconds}}</div>
+                : <div class="time-section">{{lap.output.hundredths}}</div>
+</time></td>
                     </tr> 
                 </table>
             </div>
@@ -29,7 +44,7 @@ function stopwatchDirective ($interval) {
         },
         restrict: 'E',
         replace: 'true',
-        template: (template),
+        template: (stopwatchTemplate ),
         link: function(scope) {
             var interval;
             var lastUpdate;
@@ -104,6 +119,7 @@ function stopwatchDirective ($interval) {
                     minutes: '00',
                     hours: '00'
                 }
+		scope.laps = [];
             }
 
             scope.lap = function() {

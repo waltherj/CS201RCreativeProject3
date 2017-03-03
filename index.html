@@ -2,13 +2,8 @@
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-        <script src="stopwatch.directive.js"></script>
-        <script src="time.directive.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cyborg/bootstrap.min.css" rel="stylesheet" integrity="sha384-D9XILkoivXN+bcvB2kSOowkIvIcBbNdoDQvfBNsxYAIieZbx8/SI4NeUvrRGCpDi" crossorigin="anonymous">        <script src="stopwatch.directive.js"></script>
+        <script src="timer.directive.js"></script>
         <script src="app.js"></script>
 
         <link rel="stylesheet" type="text/css" href="styles.css">
@@ -17,12 +12,75 @@
     </head>
     <body>
         <div ng-app='app' ng-controller='mainCtrl'>
-            <div class="container">
+            <div class="container-fluid">
+	    <div class="row">
+
+                <div class="col-lg-6">
                 <h1>Stopwatch</h1>
-                <div class="row">
-                    <stopwatch millis="time"></stopwatch>
+                        <stopwatch millis="stopwatchTime"></stopwatch>
                 </div>
+                <div class="col-lg-6">
+		<h1>Countdown Timer</h1>
+
+                        <timer millis="timerTime"></timer>
+                </div>
+	    </div>
             </div>
         </div>
+<div id="watch">
+  <div class="frame-face"></div>
+  <ul class="minute-marks">
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+    <li></li><li></li><li></li><li></li><li></li><li></li>
+  </ul>
+  <div class="digital-wrap">
+    <ul class="digit-hours">
+      <li>23</li>
+      <li>00</li><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li>
+      <li>06</li><li>07</li><li>08</li><li>09</li><li>10</li><li>11</li>
+      <li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
+      <li>18</li><li>19</li><li>20</li><li>21</li><li>22</li>
+    </ul>
+    <ul class="digit-minutes">
+      <li>10</li><li>11</li>
+      <li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
+      <li>18</li><li>19</li><li>20</li><li>21</li><li>22</li><li>23</li>
+      <li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li>
+      <li>30</li><li>31</li><li>32</li><li>33</li><li>34</li><li>35</li>
+      <li>36</li><li>37</li><li>38</li><li>39</li><li>40</li><li>41</li>
+      <li>42</li><li>43</li><li>44</li><li>45</li><li>46</li><li>47</li>
+      <li>48</li><li>49</li><li>50</li><li>51</li><li>52</li><li>53</li>
+      <li>54</li><li>55</li><li>56</li><li>57</li><li>58</li><li>59</li>
+      <li>00</li><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li>
+      <li>06</li><li>07</li><li>08</li><li>09</li>
+    </ul>
+    <ul class="digit-seconds">
+      <li>20</li><li>21</li><li>22</li><li>23</li>
+      <li>24</li><li>25</li><li>26</li><li>27</li><li>28</li><li>29</li>
+      <li>30</li><li>31</li><li>32</li><li>33</li><li>34</li><li>35</li>
+      <li>36</li><li>37</li><li>38</li><li>39</li><li>40</li><li>41</li>
+      <li>42</li><li>43</li><li>44</li><li>45</li><li>46</li><li>47</li>
+      <li>48</li><li>49</li><li>50</li><li>51</li><li>52</li><li>53</li>
+      <li>54</li><li>55</li><li>56</li><li>57</li><li>58</li><li>59</li>
+      <li>00</li><li>01</li><li>02</li><li>03</li><li>04</li><li>05</li>
+      <li>06</li><li>07</li><li>08</li><li>09</li><li>10</li><li>11</li>
+      <li>12</li><li>13</li><li>14</li><li>15</li><li>16</li><li>17</li>
+      <li>18</li><li>19</li>
+    </ul>
+  </div>
+  <ul class="digits">
+    <li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li>
+    <li>7</li><li>8</li><li>9</li><li>10</li><li>11</li><li>12</li>
+  </ul>
+  <div class="hours-hand"></div>
+  <div class="minutes-hand"></div>
+  <div class="seconds-hand"></div>
+</div>
     </body>
 </html>
